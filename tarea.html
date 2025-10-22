@@ -6,7 +6,6 @@
 <title>Tareas - Base de Datos II</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 <style>
-/* ===== GENERAL ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: 'Poppins', sans-serif;
@@ -15,8 +14,6 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
-
-/* ===== NAVBAR ===== */
 nav.navbar {
   display: flex;
   justify-content: space-between;
@@ -29,34 +26,50 @@ nav.navbar {
   top: 0;
   z-index: 10;
 }
-nav .logo { display: flex; align-items: center; gap: 10px; }
-nav .logo img { height: 45px; }
+nav .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+nav .logo img {
+  height: 45px;
+}
 nav .logo span {
-  font-weight: 700; color: #FFD700;
-  font-family: 'Playfair Display', serif; font-size: 1.2rem;
+  font-weight: 700;
+  color: #FFD700;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
 }
 nav .title {
   font-family: 'Playfair Display', serif;
-  font-size: 1.8rem; color: #fff;
+  font-size: 1.8rem;
+  color: #fff;
   text-shadow: 0 0 8px rgba(255,255,255,0.5);
 }
 nav .menu a {
-  margin-left: 25px; text-decoration: none; color: #f1f5f9;
-  font-weight: 600; transition: color 0.3s ease;
+  margin-left: 25px;
+  text-decoration: none;
+  color: #f1f5f9;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
-nav .menu a:hover { color: #FFD700; }
-
-/* ===== MAIN ===== */
+nav .menu a:hover {
+  color: #FFD700;
+}
 main {
   padding: 3rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem; max-width: 1200px; margin: auto;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
 }
 .card {
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,215,0,0.2);
-  border-radius: 20px; padding: 2rem; text-align: center;
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
   backdrop-filter: blur(12px);
   box-shadow: 0 0 25px rgba(255,215,0,0.1);
   transition: all 0.4s ease;
@@ -67,14 +80,22 @@ main {
 }
 .card h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.4rem; color: #FFD700; margin-bottom: 10px;
+  font-size: 1.4rem;
+  color: #FFD700;
+  margin-bottom: 10px;
 }
-.card p { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 20px; }
+.card p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
 .btn {
   display: inline-block;
   background: linear-gradient(90deg, #FFD700, #facc15);
-  color: #111; padding: 10px 20px;
-  border-radius: 8px; font-weight: 600;
+  color: #111;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
   text-decoration: none;
   box-shadow: 0 0 10px rgba(255,215,0,0.4);
   transition: all 0.3s ease;
@@ -85,21 +106,56 @@ main {
   transform: translateY(-3px);
 }
 
-/* ===== MODAL ===== */
+/* ===== BOTÓN GITHUB BONITO ===== */
+.github-btn {
+  display: inline-block;
+  text-align: center;
+  margin: 40px auto;
+  padding: 14px 40px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111;
+  background: linear-gradient(90deg, #FFD700, #facc15, #FFD700);
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 0 25px rgba(255,215,0,0.3);
+  transition: all 0.4s ease;
+  animation: brillo 2.5s infinite alternate;
+}
+.github-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(255,215,0,0.6);
+}
+@keyframes brillo {
+  0% { box-shadow: 0 0 10px rgba(255,215,0,0.2); }
+  100% { box-shadow: 0 0 35px rgba(255,215,0,0.6); }
+}
+
 .modal {
-  position: fixed; top: 0; left: 0;
+  position: fixed;
+  top: 0; left: 0;
   width: 100%; height: 100%;
   background: rgba(0,0,0,0.8);
-  display: flex; justify-content: center; align-items: center;
-  visibility: hidden; opacity: 0; transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
 }
-.modal.active { visibility: visible; opacity: 1; }
+.modal.active {
+  visibility: visible;
+  opacity: 1;
+}
 .modal-content {
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,215,0,0.3);
   backdrop-filter: blur(15px);
-  border-radius: 20px; padding: 2rem 3rem;
-  text-align: center; width: 90%; max-width: 500px;
+  border-radius: 20px;
+  padding: 2rem 3rem;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
   box-shadow: 0 0 25px rgba(255,215,0,0.3);
   animation: aparecer 0.4s ease;
 }
@@ -108,33 +164,24 @@ main {
   to { transform: scale(1); opacity: 1; }
 }
 .modal h2 {
-  color: #FFD700; margin-bottom: 1.2rem;
+  color: #FFD700;
+  margin-bottom: 1.2rem;
   font-family: 'Playfair Display', serif;
 }
 .link {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: block;
   background: rgba(255,215,0,0.15);
   border: 1px solid rgba(255,215,0,0.3);
   color: #fff;
   border-radius: 10px;
-  padding: 12px 15px;
+  padding: 12px;
   margin: 10px 0;
   text-decoration: none;
   transition: background 0.3s ease;
 }
-.link:hover { background: rgba(255,215,0,0.3); }
-.ver-btn {
-  background: #FFD700;
-  color: #111;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.3s ease;
+.link:hover {
+  background: rgba(255,215,0,0.3);
 }
-.ver-btn:hover { background: #facc15; }
 .close-btn {
   margin-top: 20px;
   background: #FFD700;
@@ -144,9 +191,9 @@ main {
   cursor: pointer;
   font-weight: 600;
 }
-.close-btn:hover { background: #facc15; }
-
-/* ===== FOOTER ===== */
+.close-btn:hover {
+  background: #facc15;
+}
 footer {
   text-align: center;
   padding: 1.5rem;
@@ -201,9 +248,7 @@ for (let i = 1; i <= 16; i++) {
   card.appendChild(h3);
 
   const p = document.createElement("p");
-  p.textContent = i === 1 ? "Informe Técnico Comparativo y Manual de GitHub" :
-                 i === 2 ? "Actividades de la semana 2" :
-                 `Material de la semana ${i}`;
+  p.textContent = `Material de la semana ${i}`;
   card.appendChild(p);
 
   const btn = document.createElement("a");
@@ -215,6 +260,13 @@ for (let i = 1; i <= 16; i++) {
 
   contenido.appendChild(card);
 }
+
+const githubBtn = document.createElement("a");
+githubBtn.href = "https://github.com/GuadalupeEmanuel/BaseDeDatos2";
+githubBtn.textContent = "🔗 Ver GitHub";
+githubBtn.className = "github-btn";
+githubBtn.target = "_blank";
+contenido.appendChild(githubBtn);
 
 function abrirModal(semana) {
   modal.classList.add("active");
@@ -230,33 +282,25 @@ function abrirModal(semana) {
     agregarLink("EJEMPLO 1", "https://www.canva.com/design/DAG2b8bBGgU/P1lMbiBvXuxtsNin_Lp9Eg/edit?utm_content=DAG2b8bBGgU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton");
     agregarLink("Manuel SQL SERVER", "https://docs.google.com/document/d/1qKfcU1gmi8FlZA5RnL5gQK2a32gsbEv3I43viwLIfiM/edit?usp=sharing");
   } 
-    else if (semana === 3) {
+  else if (semana === 3) {
     agregarLink("Cuadro Conparativo", "https://docs.google.com/document/d/1zvKw2c6TN8t5Yqy3-9a5X1fJPmaq-qswBdLetX7HOPE/edit?usp=sharing");
-  }
+  } 
   else if (semana === 4) {
-    agregarLink(
-      "Comparación de arquitecturas",
-      "https://docs.google.com/presentation/d/1K8m1-58YFCQ6ggqUJIG8J80w0UHy-duYH0YAJsVuy7Y/edit?usp=sharing"
-    );
-    agregarLink(
-      "Modelado de Bases de Datos ",
-      "https://docs.google.com/presentation/d/1A_cb7c5MBf6I_Nth8v29JUnbroU0tn7JPvvd5jcJJSA/edit?usp=sharing"
-    );
-}
+    agregarLink("Comparación de arquitecturas", "https://docs.google.com/presentation/d/1K8m1-58YFCQ6ggqUJIG8J80w0UHy-duYH0YAJsVuy7Y/edit?usp=sharing");
+    agregarLink("Modelado de Bases de Datos", "https://docs.google.com/presentation/d/1A_cb7c5MBf6I_Nth8v29JUnbroU0tn7JPvvd5jcJJSA/edit?usp=sharing");
+  } 
   else {
     agregarLink("Material de la Semana " + semana, "#");
   }
-
 }
 
 function agregarLink(nombre, url) {
-  const div = document.createElement("div");
-  div.className = "link";
-  div.innerHTML = `
-    <span>${nombre}</span>
-    <a href="${url}" target="_blank" class="ver-btn">👁 Ver</a>
-  `;
-  modalLinks.appendChild(div);
+  const a = document.createElement("a");
+  a.href = url;
+  a.textContent = nombre;
+  a.className = "link";
+  a.target = "_blank";
+  modalLinks.appendChild(a);
 }
 
 function cerrarModal() {
@@ -265,3 +309,4 @@ function cerrarModal() {
 </script>
 </body>
 </html>
+
